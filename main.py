@@ -50,17 +50,17 @@ def pre_process_landmark(landmark_list):
 def draw_bounding_rect(use_brect, image, brect):
     if use_brect:
         # Outer rectangle
-        cv.rectangle(image, (brect[0], brect[1]), (brect[2], brect[3]),
-                     (0, 0, 0), 1)
+        cv.rectangle(image, (brect[0], brect[1]), (brect[2], brect[3]), (0, 0, 255), 1)
+
 
     return image
 
-def draw_landmarks(image, landmark_list):
-    # Thumb
-    for index, landmark in enumerate(landmark_list[0:4]):
-        cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), -1)
+# def draw_landmarks(image, landmark_list):
+#     # Thumb
+#     for index, landmark in enumerate(landmark_list[0:4]):
+#         cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), -1)
 
-    return image
+#     return image
 
 def draw_landmarks(image, landmark_point):
      # Connection line
@@ -350,7 +350,7 @@ def draw_info_text(image, brect, handedness, hand_sign_text,
     if hand_sign_text != "":
         info_text = info_text + ':' + hand_sign_text
     cv.putText(image, info_text, (brect[0] + 5, brect[1] - 4),
-               cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
+               cv.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 1, cv.LINE_AA)
 
 
     return image
